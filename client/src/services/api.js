@@ -1,9 +1,10 @@
+
 import axios from "axios";
 
 const api = axios.create({
   baseURL:
     import.meta.env.VITE_API_URL ||
-    "https://expense-tracker-vd90.onrender.com/api",
+    "https://expense-tracker-backend-9883.onrender.com/api",
 
   headers: {
     "Content-Type": "application/json",
@@ -21,9 +22,7 @@ api.interceptors.request.use(
 
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 export default api;

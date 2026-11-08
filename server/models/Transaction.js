@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+﻿import mongoose from "mongoose";
 
 const transactionSchema = new mongoose.Schema(
   {
@@ -7,29 +7,30 @@ const transactionSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-
     title: {
       type: String,
       required: true,
       trim: true,
     },
-
     amount: {
       type: Number,
       required: true,
     },
-
     type: {
       type: String,
       enum: ["income", "expense"],
       required: true,
     },
-
     category: {
       type: String,
       required: true,
+      trim: true,
     },
-
+    customCategory: {
+      type: String,
+      default: "",
+      trim: true,
+    },
     date: {
       type: Date,
       default: Date.now,
